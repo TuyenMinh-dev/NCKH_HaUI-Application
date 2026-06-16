@@ -1,0 +1,28 @@
+╔══════════════════════════════════════╗
+║       BÁO CÁO NCKH - HAUI           ║
+╚══════════════════════════════════════╝
+
+Ngày xuất: 15/06/2026 18:47:32
+─────────────────────────────────────────
+
+THÔNG TIN ĐỀ TÀI
+  Mã đề tài  : NCKH002
+  Tên đề tài : Xây dựng hệ thống quản lý thư viện thông minh
+  Giảng viên : ThS. Lê Thị C
+  MSSV       : 2021600456
+  Sinh viên  : Phạm Văn Dũng
+  Trạng thái : Hoàn thành
+  Bắt đầu   : 01/09/2024
+  Kết thúc  : 15/12/2024
+
+MÔ TẢ
+  Hệ thống quản lý thư viện tích hợp nhận dạng QR code và tra cứu thông minh
+
+TIẾN ĐỘ THỰC HIỆN: 100%
+  [✓] Viết đề cương
+  [✓] Thu thập dữ liệu
+  [✓] Code demo
+  [✓] Viết báo cáo
+
+─────────────────────────────────────────
+Xuất bởi Hệ thống NCKH HaUI v2.0

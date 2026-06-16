@@ -1,0 +1,47 @@
+[
+  {
+    "maDT": "001",
+    "tenDT": "Nghiên cứu về tích hợp chatbot trả lời thông tin trên học kết hợp",
+    "giangVien": "Nguyễn Văn A",
+    "mssv": "2024",
+    "hoTenSV": "Hải",
+    "moTa": "Nghiên cứu tích hợp AI vào hệ thống học kết hợp",
+    "trangThai": "Đang thực hiện",
+    "ngayBatDau": "25/10/2025",
+    "ngayKetThuc": "30/6/2026",
+    "deCuong": true,
+    "thuThapDuLieu": true,
+    "codeDemo": true,
+    "vietBaoCao": false
+  },
+  {
+    "maDT": "NCKH001",
+    "tenDT": "Nghiên cứu ứng dụng AI trong nhận dạng chữ viết tay",
+    "giangVien": "TS. Nguyễn Văn A",
+    "mssv": "2021600123",
+    "hoTenSV": "Trần Thị Bình",
+    "moTa": "Nghiên cứu và ứng dụng mô hình học sâu để nhận dạng chữ viết tay tiếng Việt",
+    "trangThai": "Đang thực hiện",
+    "ngayBatDau": "01/09/2024",
+    "ngayKetThuc": "30/05/2025",
+    "deCuong": true,
+    "thuThapDuLieu": true,
+    "codeDemo": false,
+    "vietBaoCao": false
+  },
+  {
+    "maDT": "NCKH002",
+    "tenDT": "Xây dựng hệ thống quản lý thư viện thông minh",
+    "giangVien": "ThS. Lê Thị C",
+    "mssv": "2021600456",
+    "hoTenSV": "Phạm Văn Dũng",
+    "moTa": "Hệ thống quản lý thư viện tích hợp nhận dạng QR code và tra cứu thông minh",
+    "trangThai": "Hoàn thành",
+    "ngayBatDau": "01/09/2024",
+    "ngayKetThuc": "15/12/2024",
+    "deCuong": true,
+    "thuThapDuLieu": true,
+    "codeDemo": true,
+    "vietBaoCao": true
+  }
+]
