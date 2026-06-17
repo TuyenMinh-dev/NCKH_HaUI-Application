@@ -104,22 +104,29 @@ public class DeTaiForm extends javax.swing.JPanel {
         txtMoTaArea.setRows(5);
         txtMoTa.setViewportView(txtMoTaArea);
 
-        btnThem.setBackground(new java.awt.Color(102, 255, 0));
-        btnThem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnThem.setForeground(new java.awt.Color(51, 51, 51));
+        btnThem.setBackground(new java.awt.Color(0, 90, 170));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
         btnThem.setText("+ Thêm");
 
-        btnSua.setBackground(new java.awt.Color(255, 153, 51));
-        btnSua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnSua.setBackground(new java.awt.Color(230, 87, 37));
+        btnSua.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnSua.setForeground(new java.awt.Color(255, 255, 255));
         btnSua.setText("Sửa");
 
-        btnXoa.setBackground(new java.awt.Color(255, 0, 51));
+        btnXoa.setBackground(new java.awt.Color(239, 68, 68));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
         btnXoa.setText("Xóa");
 
-        btnLamMoi.setBackground(new java.awt.Color(255, 255, 51));
+        btnLamMoi.setBackground(new java.awt.Color(100, 116, 139));
+        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLamMoi.setForeground(new java.awt.Color(255, 255, 255));
         btnLamMoi.setText("Làm mới");
 
-        btnXuatBC.setBackground(new java.awt.Color(0, 153, 255));
+        btnXuatBC.setBackground(new java.awt.Color(0, 204, 255));
+        btnXuatBC.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnXuatBC.setForeground(new java.awt.Color(255, 255, 255));
         btnXuatBC.setText("Xuất BC");
 
         lblTimKiem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -178,7 +185,7 @@ public class DeTaiForm extends javax.swing.JPanel {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(lblTimKiem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnThem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(0, 26, Short.MAX_VALUE))
+                                .addGap(0, 23, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -192,9 +199,10 @@ public class DeTaiForm extends javax.swing.JPanel {
                                                 .addComponent(txtMSSV, javax.swing.GroupLayout.Alignment.LEADING))
                                             .addGap(103, 103, 103)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblMaDT, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(215, 215, 215))
-                                    .addComponent(lblMSSV))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblMaDT, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblMSSV))
+                                        .addGap(215, 215, 215)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtHoTen)
                                     .addComponent(txtNgayKT)
@@ -236,8 +244,8 @@ public class DeTaiForm extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(txtGiangVien, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHoTen)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblHoTen, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblMSSV))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

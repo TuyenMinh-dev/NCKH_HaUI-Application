@@ -14,7 +14,7 @@ public class MainFrame extends JFrame {
 
     private CardLayout cardLayout;
     private JPanel contentPanel;
-    private DashboardPanel dashboardPanel;
+    private DashboardForm dashboardForm;
     private ProgressForm progressForm;
     private TaiLieuForm taiLieuForm;
     private ThongKePanel thongKePanel;   // <<< THÊM MỚI
@@ -166,9 +166,10 @@ public class MainFrame extends JFrame {
         activeNav = idx;
         cardLayout.show(contentPanel, navKeys[idx]);
 
-        // <<< THÊM case idx == 4 cho Thống kê
         if (idx == 0) {
-            dashboardPanel.refreshData();
+            if (idx == 0) {
+                dashboardForm.refreshData();
+            }
         }
         if (idx == 2) {
             progressForm.loadCombo();
@@ -209,24 +210,24 @@ public class MainFrame extends JFrame {
         contentPanel = new JPanel(cardLayout);
         contentPanel.setBackground(StyleManager.BG_LIGHT);
 
-        dashboardPanel = new DashboardPanel();
+        dashboardForm = new DashboardForm();
         progressForm = new ProgressForm();
         taiLieuForm = new TaiLieuForm();
-        thongKePanel = new ThongKePanel();   // <<< THÊM MỚI
+        thongKePanel = new ThongKePanel();   
 
-        contentPanel.add(dashboardPanel, "dashboard");
+        contentPanel.add(new JScrollPane(dashboardForm), "dashboard");
         contentPanel.add(new JScrollPane(new DeTaiForm()), "detai");
         contentPanel.add(new JScrollPane(progressForm), "progress");
         contentPanel.add(new JScrollPane(new TaiLieuForm()), "tailieu");
-        contentPanel.add(thongKePanel, "thongke"); // <<< THÊM MỚI
+        contentPanel.add(thongKePanel, "thongke"); 
         contentPanel.add(new AboutPanel(), "about");
 
         add(contentPanel, BorderLayout.CENTER);
-        dashboardPanel.refreshData();
+        dashboardForm.refreshData();
     }
 
     public void refreshAll() {
-        dashboardPanel.refreshData();
+        dashboardForm.refreshData();
         progressForm.loadCombo();
     }
 }

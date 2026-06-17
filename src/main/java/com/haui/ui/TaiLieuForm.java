@@ -44,17 +44,26 @@ public class TaiLieuForm extends javax.swing.JPanel {
         btnXoa = new javax.swing.JButton();
         scrollTable = new javax.swing.JScrollPane();
         tblTaiLieu = new javax.swing.JTable();
+        lblTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblTongSo = new javax.swing.JLabel();
 
-        lblTimKiem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTimKiem.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblTimKiem.setText("Tìm kiếm tài liệu");
 
-        btnThem.setBackground(new java.awt.Color(0, 153, 255));
+        btnThem.setBackground(new java.awt.Color(0, 90, 170));
+        btnThem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnThem.setForeground(new java.awt.Color(255, 255, 255));
         btnThem.setText("+ Thêm file");
 
-        btnMoFile.setBackground(new java.awt.Color(255, 102, 51));
+        btnMoFile.setBackground(new java.awt.Color(239, 68, 68));
+        btnMoFile.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMoFile.setForeground(new java.awt.Color(255, 255, 255));
         btnMoFile.setText("Mở file");
 
         btnXoa.setBackground(new java.awt.Color(255, 0, 0));
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnXoa.setForeground(new java.awt.Color(255, 255, 255));
         btnXoa.setText("Xóa");
 
         tblTaiLieu.setModel(new javax.swing.table.DefaultTableModel(
@@ -78,40 +87,67 @@ public class TaiLieuForm extends javax.swing.JPanel {
         });
         scrollTable.setViewportView(tblTaiLieu);
 
+        lblTitle.setBackground(new java.awt.Color(255, 0, 0));
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(255, 51, 0));
+        lblTitle.setText("Kho tài liệu");
+
+        lblTongSo.setBackground(new java.awt.Color(102, 255, 0));
+        lblTongSo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTongSo.setForeground(new java.awt.Color(255, 102, 0));
+        lblTongSo.setText(" Tổng: 0 tài liệu");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(scrollTable, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitle)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(scrollTable, javax.swing.GroupLayout.PREFERRED_SIZE, 886, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1))
+                            .addComponent(lblTongSo)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(363, 363, 363)
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(130, 130, 130)
-                        .addComponent(btnMoFile)
-                        .addGap(143, 143, 143)
-                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(172, 172, 172))
-                    .addComponent(lblTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTimKiem))
-                .addContainerGap(122, Short.MAX_VALUE))
+                        .addGap(121, 121, 121)
+                        .addComponent(btnMoFile, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148)
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(20, 20, 20)
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMoFile, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(scrollTable, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(lblTongSo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(414, 414, 414))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(scrollTable, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
     // ================== PHẦN NGHIỆP VỤ  ==================
@@ -150,6 +186,7 @@ public class TaiLieuForm extends javax.swing.JPanel {
                 tl.getMaDeTai(), tl.getNgayThem(), tl.getGhiChu()
             });
         }
+        lblTongSo.setText("Tổng: " + tableModel.getRowCount() + " tài liệu");
     }
 
     /** Lấy phần mở rộng (đuôi file) */
@@ -254,13 +291,17 @@ public class TaiLieuForm extends javax.swing.JPanel {
                 .findFirst()
                 .ifPresent(tl -> AppContext.DATA_SERVICE.xoaTaiLieu(tl.getId()));
         loadTable();
+        lblTongSo.setText("📁 Tổng: " + tableModel.getRowCount() + " tài liệu");
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMoFile;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblTimKiem;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTongSo;
     private javax.swing.JScrollPane scrollTable;
     private javax.swing.JTable tblTaiLieu;
     private javax.swing.JTextField txtTimKiem;
