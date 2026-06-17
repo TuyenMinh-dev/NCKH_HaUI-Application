@@ -9,7 +9,7 @@
 ![Maven](https://img.shields.io/badge/Build-Maven-red?style=for-the-badge&logo=apachemaven)
 ![Version](https://img.shields.io/badge/Version-2.0-purple?style=for-the-badge)
 
-**Ứng dụng desktop quản lý đề tài nghiên cứu khoa học cho sinh viên & giảng viên Trường Đại học Công nghiệp Hà Nội**
+**Ứng dụng desktop quản lý đề tài nghiên cứu khoa học cho sinh viên & giảng viên Đại học Công nghiệp Hà Nội**
 
 </div>
 
@@ -17,14 +17,13 @@
 
 ## 📸 Giao diện
 
-| Dashboard                                          | Quản lý đề tài                                  |
-| -------------------------------------------------- | ----------------------------------------------- |
+| Dashboard                       | Quản lý đề tài            |
+| ------------------------------- | ------------------------- |
 | ![Dashboard](img/dashboard.png) | ![QuanLy](img/quanly.png) |
 
-| Tiến độ                                         | Thống kê                                         |
-| ----------------------------------------------- | ------------------------------------------------ |
+| Tiến độ                   | Thống kê                    |
+| ------------------------- | --------------------------- |
 | ![TienDo](img/tiendo.png) | ![ThongKe](img/thongke.png) |
-
 
 ## ✨ Tính năng
 
@@ -86,7 +85,7 @@
 NCKH_HaUI-Application/
 ├── src/main/java/com/haui/
 │   ├── main/
-│   │   └── Main.java               # Điểm khởi chạy 
+│   │   └── Main.java               # Điểm khởi chạy
 │   ├── model/
 │   │   ├── DeTai.java              # Model đề tài
 │   │   ├── TaiLieu.java            # Model tài liệu
@@ -103,7 +102,7 @@ NCKH_HaUI-Application/
 │   │   ├── TaiLieuForm.java        # Tab Kho tài liệu
 │   │   ├── ThongKePanel.java       # Tab Thống kê
 │   │   ├── AboutPanel.java         # Tab Giới thiệu
-│   │   ├── TableRenderers.java     # Custom renderer 
+│   │   ├── TableRenderers.java     # Custom renderer
 │   │   └── AppContext.java         # Context toàn cục
 │   └── util/
 │       └── StyleManager.java       # Màu sắc & font dùng chung
