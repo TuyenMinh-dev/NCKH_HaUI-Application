@@ -131,7 +131,7 @@ java -jar target/nckh-haui-2.0-executable.jar
 
 ```bash
 # Clone repository
-git clone https://github.com/<your-username>/NCKH_HaUI-Application.git
+git clone https://github.com/<TuyenMinh-dev>/NCKH_HaUI-Application.git
 cd NCKH_HaUI-Application
 
 # Build
