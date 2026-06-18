@@ -15,7 +15,7 @@ public class ReportService {
                     DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 
             writer.write("╔══════════════════════════════════════╗\n");
-            writer.write("║       BÁO CÁO NCKH - HAUI           ║\n");
+            writer.write("║       BÁO CÁO NCKH - HAUI            ║\n");
             writer.write("╚══════════════════════════════════════╝\n\n");
             writer.write("Ngày xuất: " + time + "\n");
             writer.write("─────────────────────────────────────────\n\n");
@@ -38,7 +38,7 @@ public class ReportService {
             writer.write("  [" + (dt.isCodeDemo() ? "✓" : " ") + "] Code demo\n");
             writer.write("  [" + (dt.isVietBaoCao() ? "✓" : " ") + "] Viết báo cáo\n");
             writer.write("\n─────────────────────────────────────────\n");
-            writer.write("Xuất bởi Hệ thống NCKH HaUI v2.0\n");
+            writer.write("Xuất bởi Hệ thống NCKH HaUI \n");
 
         } catch (Exception e) {
             e.printStackTrace();

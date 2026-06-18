@@ -14,14 +14,14 @@ public class MainFrame extends JFrame {
 
     private CardLayout cardLayout;
     private JPanel contentPanel;
+    private DeTaiForm deTaiForm;
     private DashboardForm dashboardForm;
     private ProgressForm progressForm;
     private TaiLieuForm taiLieuForm;
-    private ThongKePanel thongKePanel;   // <<< THÊM MỚI
+    private ThongKePanel thongKePanel;   
 
     private final List<JPanel> navItems = new ArrayList<>();
-
-    // <<< THÊM "thongke" vào mảng navKeys (index 5)
+    
     private final String[] navKeys = {
         "dashboard", "detai", "progress", "tailieu", "thongke", "about"
     };
@@ -163,25 +163,19 @@ public class MainFrame extends JFrame {
     }
 
     private void navigate(int idx) {
-        activeNav = idx;
-        cardLayout.show(contentPanel, navKeys[idx]);
+    activeNav = idx;
+    cardLayout.show(contentPanel, navKeys[idx]);
 
-        if (idx == 0) {
-            if (idx == 0) {
-                dashboardForm.refreshData();
-            }
-        }
-        if (idx == 2) {
-            progressForm.loadCombo();
-        }
-        if (idx == 3) {
-            taiLieuForm.loadTable();
-        }
-        if (idx == 4) {
-            thongKePanel.lamMoi();   // refresh khi chuyển sang
-        }
-        updateNavHighlight();
+    switch (idx) {
+        case 0 -> dashboardForm.refreshData();
+        case 1 -> deTaiForm.loadTable("");
+        case 2 -> progressForm.loadCombo();
+        case 3 -> taiLieuForm.loadTable();
+        case 4 -> thongKePanel.lamMoi();
     }
+
+    updateNavHighlight();
+}
 
     private void updateNavHighlight() {
         for (int i = 0; i < navItems.size(); i++) {
@@ -212,14 +206,15 @@ public class MainFrame extends JFrame {
 
         dashboardForm = new DashboardForm();
         progressForm = new ProgressForm();
+        deTaiForm = new DeTaiForm();
         taiLieuForm = new TaiLieuForm();
-        thongKePanel = new ThongKePanel();   
+        thongKePanel = new ThongKePanel();
 
         contentPanel.add(new JScrollPane(dashboardForm), "dashboard");
-        contentPanel.add(new JScrollPane(new DeTaiForm()), "detai");
+        contentPanel.add(new JScrollPane(deTaiForm), "detai");
         contentPanel.add(new JScrollPane(progressForm), "progress");
-        contentPanel.add(new JScrollPane(new TaiLieuForm()), "tailieu");
-        contentPanel.add(thongKePanel, "thongke"); 
+        contentPanel.add(new JScrollPane(taiLieuForm), "tailieu");
+        contentPanel.add(thongKePanel, "thongke");
         contentPanel.add(new AboutPanel(), "about");
 
         add(contentPanel, BorderLayout.CENTER);
@@ -228,6 +223,9 @@ public class MainFrame extends JFrame {
 
     public void refreshAll() {
         dashboardForm.refreshData();
+        deTaiForm.loadTable("");
         progressForm.loadCombo();
+        thongKePanel.lamMoi();
+        
     }
 }

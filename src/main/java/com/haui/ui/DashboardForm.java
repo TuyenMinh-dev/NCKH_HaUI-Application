@@ -27,7 +27,6 @@ public class DashboardForm extends javax.swing.JPanel {
         pnlTiLe.setBorder(javax.swing.BorderFactory.createCompoundBorder(
                 javax.swing.BorderFactory.createLineBorder(new java.awt.Color(180, 190, 205), 1),
                 javax.swing.BorderFactory.createMatteBorder(0, 4, 0, 0, new java.awt.Color(147, 51, 234))));
-        java.awt.Font iconFont = new java.awt.Font("Segoe UI Emoji", java.awt.Font.PLAIN, 28);
 
         setupAfterInit();
         refreshData();
@@ -47,6 +46,32 @@ public class DashboardForm extends javax.swing.JPanel {
         // Renderer màu cho cột "Tiến độ" (cột số 0) trong bảng đề tài gần đây
         tblRecent.getColumnModel().getColumn(0)
                 .setCellRenderer(new TableRenderers.TienDoRenderer());
+        
+        // ---- tblDeadline ----
+        javax.swing.table.DefaultTableCellRenderer centerDL
+                = new javax.swing.table.DefaultTableCellRenderer();
+        centerDL.setHorizontalAlignment(javax.swing.JLabel.CENTER);
+        for (int i = 0; i < tblDeadline.getColumnCount(); i++) {
+            tblDeadline.getColumnModel().getColumn(i).setCellRenderer(centerDL);
+        }
+        tblDeadline.setRowHeight(32);
+        tblDeadline.setShowGrid(true);
+        tblDeadline.setGridColor(new java.awt.Color(180, 190, 205));
+
+        // ---- tblRecent ----
+        javax.swing.table.DefaultTableCellRenderer centerRC
+                = new javax.swing.table.DefaultTableCellRenderer();
+        centerRC.setHorizontalAlignment(javax.swing.JLabel.CENTER);
+        for (int i = 0; i < tblRecent.getColumnCount(); i++) {
+            tblRecent.getColumnModel().getColumn(i).setCellRenderer(centerRC);
+        }
+        tblRecent.setRowHeight(32);
+        tblRecent.setShowGrid(true);
+        tblRecent.setGridColor(new java.awt.Color(180, 190, 205));
+
+        // Sau vòng for, set lại renderer tiến độ cho cột 0 của tblRecent
+        tblRecent.getColumnModel().getColumn(0)
+                .setCellRenderer(new TableRenderers.TienDoRenderer());
 
         loadDeadline();
     }
@@ -57,11 +82,11 @@ public class DashboardForm extends javax.swing.JPanel {
     private void loadDeadline() {
         deadlineModel.setRowCount(0);
         String[][] deadlines = {
-            {"30/10", "🔴 Hạn đăng ký đề tài"},
-            {"15/12", "🟡 Nghiệm thu cấp khoa"},
-            {"20/12", "🔴 Nộp báo cáo cuối kỳ"},
-            {"05/01", "🟠 Bảo vệ đề tài"},
-            {"15/01", "🟢 Nộp điểm về Phòng NCKH"},};
+            {"30/10", " Hạn đăng ký đề tài "},
+            {"15/12", " Nghiệm thu cấp khoa "},
+            {"20/12", " Nộp báo cáo cuối kỳ "},
+            {"05/01", " Bảo vệ đề tài "},
+            {"15/01", " Nộp điểm về Phòng NCKH "},};
         for (String[] dl : deadlines) {
             deadlineModel.addRow(new Object[]{dl[0], dl[1]});
         }
@@ -152,7 +177,7 @@ public class DashboardForm extends javax.swing.JPanel {
                 .addGroup(pnlTongDeTaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTong, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTitleTong))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         pnlTongDeTaiLayout.setVerticalGroup(
             pnlTongDeTaiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +279,7 @@ public class DashboardForm extends javax.swing.JPanel {
                 .addComponent(lblTitleTiLe)
                 .addGap(27, 27, 27)
                 .addComponent(lblTiLe)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlDeadline.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
@@ -302,7 +327,7 @@ public class DashboardForm extends javax.swing.JPanel {
                 .addComponent(lblDeadlineTitle)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pnlRecent.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -350,7 +375,7 @@ public class DashboardForm extends javax.swing.JPanel {
                 .addComponent(lblRecentTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -390,19 +415,15 @@ public class DashboardForm extends javax.swing.JPanel {
                     .addComponent(lblNgayHomNay))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(pnlDangLam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlTongDeTai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(pnlHoanThanh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pnlTiLe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(pnlRecent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                    .addComponent(pnlDangLam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTongDeTai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlHoanThanh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlTiLe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlRecent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlDeadline, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(64, 64, 64))
         );
     }// </editor-fold>//GEN-END:initComponents
 

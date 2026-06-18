@@ -50,9 +50,21 @@ public class ProgressForm extends javax.swing.JPanel {
      * Nạp danh sách đề tài vào ComboBox
      */
     public void loadCombo() {
+        String dangChon = current != null ? current.getMaDT() : null;
+
         cboDeTai.removeAllItems();
         for (com.haui.model.DeTai dt : AppContext.DATA_SERVICE.layTatCa()) {
             cboDeTai.addItem(dt.getMaDT() + " - " + dt.getTenDT());
+        }
+
+        if (dangChon != null) {
+            for (int i = 0; i < cboDeTai.getItemCount(); i++) {
+                String item = cboDeTai.getItemAt(i);
+                if (item.startsWith(dangChon + " -") || item.startsWith(dangChon + " ")) {
+                    cboDeTai.setSelectedIndex(i);
+                    break;
+                }
+            }
         }
         hienThiTienDo();
     }
@@ -117,20 +129,42 @@ public class ProgressForm extends javax.swing.JPanel {
 
     private void btnLuuTienDoActionPerformed(java.awt.event.ActionEvent evt) {
         if (current == null) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Vui lòng chọn đề tài trước khi lưu tiến độ.",
-                    "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(
+                    javax.swing.SwingUtilities.getWindowAncestor(this),
+                    "Vui lòng chọn đề tài trước khi lưu!",
+                    "Chưa chọn", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
+
         current.setDeCuong(chkDeCuong.isSelected());
         current.setThuThapDuLieu(chkThuThap.isSelected());
         current.setCodeDemo(chkCodeDemo.isSelected());
         current.setVietBaoCao(chkBaoCao.isSelected());
-        AppContext.JSON_SERVICE.save(AppContext.DATA_SERVICE.layTatCa());
-        AppContext.MAIN_FRAME.refreshAll();
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Đã lưu tiến độ đề tài \"" + current.getMaDT() + "\" thành công!",
-                "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        // Tự động cập nhật trạng thái theo % tiến độ (không đổi nếu đang "Tạm dừng")
+        if (!"Tạm dừng".equals(current.getTrangThai())) {
+            int tienDo = current.getTienDo();
+            if (tienDo == 100) {
+                current.setTrangThai("Hoàn thành");
+            } else if (tienDo > 0) {
+                current.setTrangThai("Đang thực hiện");
+            } else {
+                current.setTrangThai("Mới");
+            }
+        }
+        boolean ok = AppContext.JSON_SERVICE.save(AppContext.DATA_SERVICE.layTatCa());
+        if (ok) {
+            lblTrangThaiVal.setText("Trạng thái: " + current.getTrangThai());
+            AppContext.MAIN_FRAME.refreshAll();
+            javax.swing.JOptionPane.showMessageDialog(
+                    javax.swing.SwingUtilities.getWindowAncestor(this),
+                    "Đã lưu tiến độ đề tài \"" + current.getMaDT() + "\" thành công!",
+                    "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Lưu tiến độ thất bại. Vui lòng kiểm tra quyền ghi file hoặc thử lại.",
+                    "Lỗi", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -139,21 +173,15 @@ public class ProgressForm extends javax.swing.JPanel {
 
         pnlGiaiDoan1 = new javax.swing.JPanel();
         lblMoTa1 = new javax.swing.JLabel();
-        lblTrangThai1 = new javax.swing.JLabel();
         chkDeCuong = new javax.swing.JCheckBox();
-        jPanel1 = new javax.swing.JPanel();
         pnlGiaiDoan2 = new javax.swing.JPanel();
         chkThuThap = new javax.swing.JCheckBox();
         lblMoTa2 = new javax.swing.JLabel();
-        lblTrangThai2 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
         pnlGiaiDoan3 = new javax.swing.JPanel();
-        lblTrangThai3 = new javax.swing.JLabel();
         chkCodeDemo = new javax.swing.JCheckBox();
         lblMoTa3 = new javax.swing.JLabel();
         pnlGiaiDoan4 = new javax.swing.JPanel();
         lblMoTa4 = new javax.swing.JLabel();
-        lblTrangThai4 = new javax.swing.JLabel();
         chkBaoCao = new javax.swing.JCheckBox();
         pnlTong = new javax.swing.JPanel();
         lblChonDeTai = new javax.swing.JLabel();
@@ -167,16 +195,13 @@ public class ProgressForm extends javax.swing.JPanel {
         btnLuuTienDo = new javax.swing.JButton();
 
         pnlGiaiDoan1.setBackground(new java.awt.Color(240, 253, 244));
+        pnlGiaiDoan1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
-        lblMoTa1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblMoTa1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblMoTa1.setForeground(new java.awt.Color(255, 102, 0));
         lblMoTa1.setText("Lập kế hoạch nghiên cứu, xây dựng đề cương chi tiết");
 
-        lblTrangThai1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTrangThai1.setForeground(new java.awt.Color(22, 163, 74));
-        lblTrangThai1.setText("✓ Xong");
-
-        chkDeCuong.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkDeCuong.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         chkDeCuong.setText("Giai đoạn 1: Viết đề cương");
         chkDeCuong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,44 +216,24 @@ public class ProgressForm extends javax.swing.JPanel {
             .addGroup(pnlGiaiDoan1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlGiaiDoan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlGiaiDoan1Layout.createSequentialGroup()
-                        .addComponent(lblMoTa1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlGiaiDoan1Layout.createSequentialGroup()
-                        .addComponent(chkDeCuong, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblTrangThai1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))))
+                    .addComponent(lblMoTa1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkDeCuong, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         pnlGiaiDoan1Layout.setVerticalGroup(
             pnlGiaiDoan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlGiaiDoan1Layout.createSequentialGroup()
-                .addGroup(pnlGiaiDoan1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlGiaiDoan1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(chkDeCuong, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlGiaiDoan1Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(lblTrangThai1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(chkDeCuong, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMoTa1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1388, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 129, Short.MAX_VALUE)
-        );
-
         pnlGiaiDoan2.setBackground(new java.awt.Color(240, 253, 244));
+        pnlGiaiDoan2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
-        chkThuThap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkThuThap.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         chkThuThap.setText("Giai đoạn 2: Thu thập dữ liệu");
         chkThuThap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,13 +241,9 @@ public class ProgressForm extends javax.swing.JPanel {
             }
         });
 
-        lblMoTa2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblMoTa2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblMoTa2.setForeground(new java.awt.Color(255, 102, 0));
         lblMoTa2.setText("Tìm kiếm, tổng hợp tài liệu và dữ liệu nghiên cứu ");
-
-        lblTrangThai2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTrangThai2.setForeground(new java.awt.Color(22, 163, 74));
-        lblTrangThai2.setText("✓ Xong");
 
         javax.swing.GroupLayout pnlGiaiDoan2Layout = new javax.swing.GroupLayout(pnlGiaiDoan2);
         pnlGiaiDoan2.setLayout(pnlGiaiDoan2Layout);
@@ -252,10 +253,8 @@ public class ProgressForm extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnlGiaiDoan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkThuThap, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMoTa2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTrangThai2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(lblMoTa2, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         pnlGiaiDoan2Layout.setVerticalGroup(
             pnlGiaiDoan2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,30 +264,12 @@ public class ProgressForm extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblMoTa2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGiaiDoan2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTrangThai2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(30, 30, 30))
-        );
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 991, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 307, Short.MAX_VALUE)
         );
 
         pnlGiaiDoan3.setBackground(new java.awt.Color(240, 253, 244));
+        pnlGiaiDoan3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
-        lblTrangThai3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTrangThai3.setForeground(new java.awt.Color(22, 163, 74));
-        lblTrangThai3.setText("✓ Xong");
-
-        chkCodeDemo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkCodeDemo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         chkCodeDemo.setText("Giai đoạn 3: Code demo");
         chkCodeDemo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -296,7 +277,7 @@ public class ProgressForm extends javax.swing.JPanel {
             }
         });
 
-        lblMoTa3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblMoTa3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblMoTa3.setForeground(new java.awt.Color(255, 102, 0));
         lblMoTa3.setText("Lập trình, xây dựng sản phẩm/demo minh chứng");
 
@@ -309,36 +290,26 @@ public class ProgressForm extends javax.swing.JPanel {
                 .addGroup(pnlGiaiDoan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkCodeDemo, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMoTa3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTrangThai3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(319, 319, 319))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlGiaiDoan3Layout.setVerticalGroup(
             pnlGiaiDoan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGiaiDoan3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlGiaiDoan3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGiaiDoan3Layout.createSequentialGroup()
-                        .addComponent(chkCodeDemo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblMoTa3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(57, 57, 57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGiaiDoan3Layout.createSequentialGroup()
-                        .addComponent(lblTrangThai3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))))
+                .addComponent(chkCodeDemo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblMoTa3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
 
         pnlGiaiDoan4.setBackground(new java.awt.Color(240, 253, 244));
+        pnlGiaiDoan4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
-        lblMoTa4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblMoTa4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblMoTa4.setForeground(new java.awt.Color(255, 102, 51));
         lblMoTa4.setText("Hoàn thiện báo cáo tổng kết kết quả nghiên cứu");
 
-        lblTrangThai4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTrangThai4.setForeground(new java.awt.Color(22, 163, 74));
-        lblTrangThai4.setText("✓ Xong");
-
-        chkBaoCao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        chkBaoCao.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         chkBaoCao.setText("Giai đoạn 4: Viết báo cáo");
 
         javax.swing.GroupLayout pnlGiaiDoan4Layout = new javax.swing.GroupLayout(pnlGiaiDoan4);
@@ -349,10 +320,8 @@ public class ProgressForm extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(pnlGiaiDoan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(chkBaoCao, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMoTa4, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTrangThai4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                    .addComponent(lblMoTa4, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlGiaiDoan4Layout.setVerticalGroup(
             pnlGiaiDoan4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,13 +331,10 @@ public class ProgressForm extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMoTa4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlGiaiDoan4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTrangThai4, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37))
         );
 
         pnlTong.setBackground(new java.awt.Color(240, 253, 244));
+        pnlTong.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 102)));
 
         lblChonDeTai.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblChonDeTai.setText("Chọn đề tài :");
@@ -398,9 +364,11 @@ public class ProgressForm extends javax.swing.JPanel {
         lblPhanTram.setForeground(new java.awt.Color(255, 0, 0));
         lblPhanTram.setText("0%");
 
-        btnLuuTienDo.setBackground(new java.awt.Color(0, 102, 204));
-        btnLuuTienDo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnLuuTienDo.setText("💾 Lưu tiến độ");
+        btnLuuTienDo.setBackground(new java.awt.Color(0, 90, 170));
+        btnLuuTienDo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnLuuTienDo.setForeground(new java.awt.Color(255, 255, 255));
+        btnLuuTienDo.setText(" Lưu tiến độ");
+        btnLuuTienDo.setActionCommand("Lưu tiến độ");
 
         javax.swing.GroupLayout pnlTongLayout = new javax.swing.GroupLayout(pnlTong);
         pnlTong.setLayout(pnlTongLayout);
@@ -413,17 +381,18 @@ public class ProgressForm extends javax.swing.JPanel {
                             .addGroup(pnlTongLayout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPhanTram, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTienDo, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTrangThaiVal, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblGiangVienVal, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTenDTVal, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblChonDeTai)))
+                                    .addComponent(lblChonDeTai)
+                                    .addComponent(lblTenDTVal, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTrangThaiVal, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblGiangVienVal, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pnlTongLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(progressBar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                                        .addComponent(lblTienDo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(pnlTongLayout.createSequentialGroup()
                                 .addGap(84, 84, 84)
                                 .addComponent(btnLuuTienDo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 72, Short.MAX_VALUE))
+                        .addGap(0, 8, Short.MAX_VALUE))
                     .addGroup(pnlTongLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(cboDeTai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -437,20 +406,20 @@ public class ProgressForm extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(cboDeTai, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addComponent(lblTenDTVal)
-                .addGap(61, 61, 61)
-                .addComponent(lblGiangVienVal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTenDTVal, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(lblGiangVienVal, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(lblTrangThaiVal, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96)
-                .addComponent(lblTienDo)
-                .addGap(34, 34, 34)
+                .addComponent(lblTienDo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(lblPhanTram)
                 .addGap(38, 38, 38)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(47, 47, 47)
                 .addComponent(btnLuuTienDo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -458,23 +427,16 @@ public class ProgressForm extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(pnlTong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(pnlGiaiDoan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pnlGiaiDoan3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(pnlGiaiDoan3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pnlGiaiDoan4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 804, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(372, 372, 372)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(725, 725, 725)))
-                        .addContainerGap(1881, Short.MAX_VALUE))
+                        .addContainerGap(4700, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlGiaiDoan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -482,28 +444,17 @@ public class ProgressForm extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlTong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(453, 453, 453)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pnlTong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(pnlGiaiDoan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(53, 53, 53)
-                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(51, 51, 51))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(pnlGiaiDoan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(27, 27, 27)))
-                                .addComponent(pnlGiaiDoan3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pnlGiaiDoan4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(pnlGiaiDoan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(pnlGiaiDoan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(pnlGiaiDoan3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(pnlGiaiDoan4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -532,8 +483,6 @@ public class ProgressForm extends javax.swing.JPanel {
     private javax.swing.JCheckBox chkCodeDemo;
     private javax.swing.JCheckBox chkDeCuong;
     private javax.swing.JCheckBox chkThuThap;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblChonDeTai;
     private javax.swing.JLabel lblGiangVienVal;
     private javax.swing.JLabel lblMoTa1;
@@ -543,10 +492,6 @@ public class ProgressForm extends javax.swing.JPanel {
     private javax.swing.JLabel lblPhanTram;
     private javax.swing.JLabel lblTenDTVal;
     private javax.swing.JLabel lblTienDo;
-    private javax.swing.JLabel lblTrangThai1;
-    private javax.swing.JLabel lblTrangThai2;
-    private javax.swing.JLabel lblTrangThai3;
-    private javax.swing.JLabel lblTrangThai4;
     private javax.swing.JLabel lblTrangThaiVal;
     private javax.swing.JPanel pnlGiaiDoan1;
     private javax.swing.JPanel pnlGiaiDoan2;

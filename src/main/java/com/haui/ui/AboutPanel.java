@@ -39,11 +39,11 @@ public class AboutPanel extends JPanel {
         appName.setFont(new Font("Segoe UI", Font.BOLD, 22));
         appName.setForeground(StyleManager.TEXT_PRIMARY);
 
-        JLabel university = new JLabel("Trường Đại học Công nghiệp Hà Nội (HaUI)", SwingConstants.CENTER);
+        JLabel university = new JLabel("Đại học Công nghiệp Hà Nội (HaUI)", SwingConstants.CENTER);
         university.setFont(new Font("Segoe UI", Font.PLAIN, 15));
         university.setForeground(StyleManager.HAUI_BLUE);
 
-        JLabel version = new JLabel("Phiên bản 2.0  –  2025", SwingConstants.CENTER);
+        JLabel version = new JLabel("Tháng 6 – 2026 Version", SwingConstants.CENTER);
         version.setFont(StyleManager.FONT_SMALL);
         version.setForeground(StyleManager.TEXT_SECONDARY);
 

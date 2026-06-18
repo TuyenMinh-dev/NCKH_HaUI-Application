@@ -10,7 +10,7 @@ public class DeTai implements Comparable<DeTai>, Serializable {
     private String mssv;
     private String hoTenSV;
     private String moTa;
-    private String trangThai; // "Mới", "Đang thực hiện", "Hoàn thành", "Tạm dừng"
+    private String trangThai; 
     private String ngayBatDau;
     private String ngayKetThuc;
 

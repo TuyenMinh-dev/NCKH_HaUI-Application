@@ -4,7 +4,7 @@ public class TaiLieu {
     private String id;
     private String tenFile;
     private String duongDan;
-    private String loai;      // "PDF", "Word", "Excel", "Khác"
+    private String loai;      
     private String maDeTai;
     private String ngayThem;
     private String ghiChu;

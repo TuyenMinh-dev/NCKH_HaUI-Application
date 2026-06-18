@@ -63,6 +63,7 @@ public class DeTaiForm extends javax.swing.JPanel {
         txtTimKiem = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDeTai = new javax.swing.JTable();
+        lblTitle = new javax.swing.JLabel();
 
         lblMaDT.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblMaDT.setText("Mã đề tài :");
@@ -154,6 +155,10 @@ public class DeTaiForm extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblDeTai);
 
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 153, 255));
+        lblTitle.setText("Quản lý đề tài");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -162,30 +167,24 @@ public class DeTaiForm extends javax.swing.JPanel {
                 .addGap(151, 151, 151)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMoTa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1037, Short.MAX_VALUE))
+                        .addContainerGap(168, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitle)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMoTa)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(124, 124, 124)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(132, 132, 132))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnSua)
-                                                .addGap(51, 51, 51)
-                                                .addComponent(btnXoa)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnLamMoi)
-                                                .addGap(52, 52, 52)))
-                                        .addComponent(btnXuatBC))
-                                    .addComponent(lblGiangVien)
-                                    .addComponent(txtGiangVien, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblTimKiem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnThem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(0, 23, Short.MAX_VALUE))
+                                .addComponent(lblMSSV)
+                                .addGap(343, 343, 343)
+                                .addComponent(lblHoTen))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblMoTa)
+                            .addComponent(lblGiangVien)
+                            .addComponent(txtGiangVien, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -194,72 +193,73 @@ public class DeTaiForm extends javax.swing.JPanel {
                                             .addGap(127, 127, 127))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txtNgayBD)
                                                 .addComponent(txtMaDT, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtMSSV, javax.swing.GroupLayout.Alignment.LEADING))
+                                                .addComponent(txtMSSV, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtNgayBD, javax.swing.GroupLayout.Alignment.LEADING))
                                             .addGap(103, 103, 103)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblMaDT, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblMSSV))
+                                        .addComponent(lblMaDT, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(215, 215, 215)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtHoTen)
-                                    .addComponent(txtNgayKT)
-                                    .addComponent(txtTenDT)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtTenDT, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNgayKT, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtHoTen, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                        .addComponent(txtNgayKT, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(211, 211, 211)
+                                        .addComponent(lblTenDT, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblTimKiem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnThem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblNgayKT)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(92, 92, 92)
-                                                .addComponent(lblTenDT, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(99, 99, 99)
-                                                .addComponent(lblHoTen)))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
-                        .addGap(304, 304, 304))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtMoTa, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(btnSua)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(btnXoa)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(btnLamMoi)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnXuatBC)))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(33, 33, 33)
+                .addComponent(lblTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMaDT, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTenDT, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMaDT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTenDT, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(lblGiangVien)
                 .addGap(18, 18, 18)
                 .addComponent(txtGiangVien, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHoTen, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMSSV))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtHoTen, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(txtMSSV))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblMSSV)
+                    .addComponent(lblHoTen))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMSSV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtHoTen, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNgayBD)
                     .addComponent(lblNgayKT))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtNgayKT, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(txtNgayBD))
-                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNgayBD, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNgayKT, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTrangThai)
                     .addComponent(cboTrangThai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -267,20 +267,20 @@ public class DeTaiForm extends javax.swing.JPanel {
                 .addComponent(lblMoTa)
                 .addGap(18, 18, 18)
                 .addComponent(txtMoTa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
                     .addComponent(btnSua)
                     .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnXuatBC, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145))
+                .addGap(78, 78, 78))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -293,33 +293,93 @@ public class DeTaiForm extends javax.swing.JPanel {
         tableModel = (DefaultTableModel) tblDeTai.getModel();
 
         // Renderer màu cho cột Trạng thái (cột 5) và Tiến độ (cột 6)
-        tblDeTai.getColumnModel().getColumn(5)
+        tblDeTai.getColumnModel().getColumn(5) // Trạng thái
                 .setCellRenderer(new TableRenderers.TrangThaiRenderer());
-        tblDeTai.getColumnModel().getColumn(6)
+        tblDeTai.getColumnModel().getColumn(6) // Tiến độ
                 .setCellRenderer(new TableRenderers.TienDoRenderer());
 
         // Khi chọn 1 dòng trong bảng -> hiển thị lên form
         tblDeTai.getSelectionModel().addListSelectionListener(e -> {
-            if (!e.getValueIsAdjusting()) hienThiLenForm();
+            if (!e.getValueIsAdjusting()) {
+                hienThiLenForm();
+            }
         });
 
         // Tìm kiếm realtime khi gõ vào ô txtTimKiem
         txtTimKiem.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void insertUpdate(javax.swing.event.DocumentEvent e)  { loadTable(txtTimKiem.getText()); }
-            public void removeUpdate(javax.swing.event.DocumentEvent e)  { loadTable(txtTimKiem.getText()); }
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { loadTable(txtTimKiem.getText()); }
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                loadTable(txtTimKiem.getText());
+            }
+
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                loadTable(txtTimKiem.getText());
+            }
+
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                loadTable(txtTimKiem.getText());
+            }
         });
 
-        // Gắn sự kiện cho 5 nút (thay cho việc click chuột trong Design)
+        // Gắn sự kiện cho 5 nút 
         btnThem.addActionListener(this::btnThemActionPerformed);
         btnSua.addActionListener(this::btnSuaActionPerformed);
         btnXoa.addActionListener(this::btnXoaActionPerformed);
         btnLamMoi.addActionListener(this::btnLamMoiActionPerformed);
         btnXuatBC.addActionListener(this::btnXuatBCActionPerformed);
+
+        // Căn giữa tất cả các cột
+        javax.swing.table.DefaultTableCellRenderer centerRenderer
+                = new javax.swing.table.DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(javax.swing.JLabel.CENTER);
+
+        for (int i = 0; i < tblDeTai.getColumnCount(); i++) {
+            tblDeTai.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+        tblDeTai.getColumnModel().getColumn(5) // cột Trạng thái
+                .setCellRenderer(new TableRenderers.TrangThaiRenderer());
+        tblDeTai.getColumnModel().getColumn(6) // cột Tiến độ
+                .setCellRenderer(new TableRenderers.TienDoRenderer());
+        tblDeTai.setRowHeight(32);
+        tblDeTai.setShowGrid(true);
+        tblDeTai.setGridColor(new java.awt.Color(180, 190, 205));
+
+        //tool tip cho các nút
+        btnThem.setToolTipText("Thêm đề tài mới");
+        btnSua.setToolTipText("Sửa đề tài đang chọn");
+        btnXoa.setToolTipText("Xóa đề tài đang chọn");
+        btnLamMoi.setToolTipText("Xóa trắng form nhập liệu");
+        btnXuatBC.setToolTipText("Xuất báo cáo đề tài ra file .txt");
+
+        // Placeholder ô tìm kiếm
+        txtTimKiem.setText("Tìm theo mã DT hoặc tên đề tài...");
+        txtTimKiem.setForeground(java.awt.Color.GRAY);
+
+        txtTimKiem.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (txtTimKiem.getText().equals("Tìm theo mã DT hoặc tên đề tài...")) {
+                    txtTimKiem.setText("");
+                    txtTimKiem.setForeground(java.awt.Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (txtTimKiem.getText().isEmpty()) {
+                    txtTimKiem.setText("Tìm theo mã DT hoặc tên đề tài...");
+                    txtTimKiem.setForeground(java.awt.Color.GRAY);
+                }
+            }
+        });
     }
 
-    /** Nạp dữ liệu vào bảng. keyword = null -> hiển thị tất cả */
+    /**
+     * Nạp dữ liệu vào bảng. keyword = null -> hiển thị tất cả
+     */
     public void loadTable(String keyword) {
+        if (keyword != null && keyword.startsWith("Tìm theo")) {
+            keyword = null;
+        }
         tableModel.setRowCount(0);
         java.util.Collection<DeTai> data = (keyword == null || keyword.isBlank())
                 ? service.layTatCa()
@@ -332,13 +392,19 @@ public class DeTaiForm extends javax.swing.JPanel {
         }
     }
 
-    /** Khi chọn dòng trong bảng -> điền dữ liệu lên các ô input */
+    /**
+     * Khi chọn dòng trong bảng -> điền dữ liệu lên các ô input
+     */
     private void hienThiLenForm() {
         int row = tblDeTai.getSelectedRow();
-        if (row == -1) return;
+        if (row == -1) {
+            return;
+        }
         String ma = tableModel.getValueAt(row, 0).toString();
         DeTai dt = service.timTheoMa(ma);
-        if (dt == null) return;
+        if (dt == null) {
+            return;
+        }
         txtMaDT.setText(dt.getMaDT());
         txtTenDT.setText(dt.getTenDT());
         txtGiangVien.setText(dt.getGiangVien());
@@ -350,11 +416,17 @@ public class DeTaiForm extends javax.swing.JPanel {
         cboTrangThai.setSelectedItem(dt.getTrangThai());
     }
 
-    /** Xóa trắng toàn bộ form nhập liệu */
+    /**
+     * Xóa trắng toàn bộ form nhập liệu
+     */
     private void clearForm() {
-        txtMaDT.setText(""); txtTenDT.setText(""); txtGiangVien.setText("");
-        txtMSSV.setText(""); txtHoTen.setText("");
-        txtNgayBD.setText(""); txtNgayKT.setText("");
+        txtMaDT.setText("");
+        txtTenDT.setText("");
+        txtGiangVien.setText("");
+        txtMSSV.setText("");
+        txtHoTen.setText("");
+        txtNgayBD.setText("");
+        txtNgayKT.setText("");
         txtMoTaArea.setText("");
         cboTrangThai.setSelectedIndex(0);
         tblDeTai.clearSelection();
@@ -362,18 +434,76 @@ public class DeTaiForm extends javax.swing.JPanel {
     }
 
     // ---- Xử lý 5 nút ----
-
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
-        String ma   = txtMaDT.getText().trim();
-        String ten  = txtTenDT.getText().trim();
-        String gv   = txtGiangVien.getText().trim();
+        String ma = txtMaDT.getText().trim();
+        String ten = txtTenDT.getText().trim();
+        String gv = txtGiangVien.getText().trim();
         String mssv = txtMSSV.getText().trim();
 
         if (ma.isEmpty() || ten.isEmpty() || gv.isEmpty() || mssv.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Vui lòng nhập đầy đủ các trường có dấu (*).",
-                "Thiếu thông tin", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Vui lòng nhập đầy đủ các trường dữ liệu.",
+                    "Thiếu thông tin", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
+        }
+        // Validate mã DT không có khoảng trắng
+        if (ma.contains(" ")) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Mã đề tài không được chứa khoảng trắng!",
+                    "Lỗi", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validate MSSV chỉ được nhập số
+        if (!mssv.matches("\\d+")) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "MSSV chỉ được nhập số!",
+                    "Lỗi", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validate ngày tháng
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+        sdf.setLenient(false); // không chấp nhận ngày kiểu 32/13/2024
+
+        String ngayBD = txtNgayBD.getText().trim();
+        String ngayKT = txtNgayKT.getText().trim();
+
+        if (!ngayBD.isEmpty()) {
+            try {
+                sdf.parse(ngayBD);
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ngày bắt đầu không đúng định dạng dd/MM/yyyy!",
+                        "Lỗi định dạng", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+
+        if (!ngayKT.isEmpty()) {
+            try {
+                sdf.parse(ngayKT);
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ngày kết thúc không đúng định dạng dd/MM/yyyy!",
+                        "Lỗi định dạng", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+        // Validate ngày kết thúc phải sau ngày bắt đầu
+        if (!ngayBD.isEmpty() && !ngayKT.isEmpty()) {
+            try {
+                java.util.Date dBD = sdf.parse(ngayBD);
+                java.util.Date dKT = sdf.parse(ngayKT);
+                if (!dKT.after(dBD)) {
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Ngày kết thúc phải sau ngày bắt đầu!",
+                            "Lỗi ngày tháng", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch (Exception e) {
+
+            }
         }
 
         DeTai dt = new DeTai(ma, ten, gv, mssv);
@@ -387,25 +517,87 @@ public class DeTaiForm extends javax.swing.JPanel {
             loadTable(null);
             clearForm();
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Thêm đề tài \"" + ma + "\" thành công!",
-                "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    "Thêm đề tài \"" + ma + "\" thành công!",
+                    "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             AppContext.MAIN_FRAME.refreshAll();
         } else {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Mã đề tài \"" + ma + "\" đã tồn tại trong hệ thống!",
-                "Trùng mã", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Mã đề tài \"" + ma + "\" đã tồn tại trong hệ thống!",
+                    "Trùng mã", javax.swing.JOptionPane.WARNING_MESSAGE);
         }
     }
+
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {
         String ma = txtMaDT.getText().trim();
         if (ma.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Vui lòng chọn đề tài cần sửa từ bảng bên dưới.",
-                "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Vui lòng chọn đề tài cần sửa từ bảng bên dưới.",
+                    "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
+
+        String mssv = txtMSSV.getText().trim();
+        // Validate mã DT không có khoảng trắng
+        if (ma.contains(" ")) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Mã đề tài không được chứa khoảng trắng!",
+                    "Lỗi", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validate MSSV chỉ được nhập số
+        if (!mssv.matches("\\d+")) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "MSSV chỉ được nhập số!",
+                    "Lỗi", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // Validate kiểm tra ngày tháng ngày tháng
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+        sdf.setLenient(false); // không chấp nhận ngày kiểu 32/13/2024
+
+        String ngayBD = txtNgayBD.getText().trim();
+        String ngayKT = txtNgayKT.getText().trim();
+
+        if (!ngayBD.isEmpty()) {
+            try {
+                sdf.parse(ngayBD);
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ngày bắt đầu không đúng định dạng dd/MM/yyyy!",
+                        "Lỗi định dạng", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+
+        if (!ngayKT.isEmpty()) {
+            try {
+                sdf.parse(ngayKT);
+            } catch (Exception e) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ngày kết thúc không đúng định dạng dd/MM/yyyy!",
+                        "Lỗi định dạng", javax.swing.JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+        }
+        // Validate ngày kết thúc phải sau ngày bắt đầu
+        if (!ngayBD.isEmpty() && !ngayKT.isEmpty()) {
+            try {
+                java.util.Date dBD = sdf.parse(ngayBD);
+                java.util.Date dKT = sdf.parse(ngayKT);
+                if (!dKT.after(dBD)) {
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Ngày kết thúc phải sau ngày bắt đầu!",
+                            "Lỗi ngày tháng", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch (Exception e) {
+
+            }
+        }
         DeTai dt = new DeTai(ma, txtTenDT.getText().trim(),
-                txtGiangVien.getText().trim(), txtMSSV.getText().trim());
+                txtGiangVien.getText().trim(), mssv);
         dt.setHoTenSV(txtHoTen.getText().trim());
         dt.setNgayBatDau(txtNgayBD.getText().trim());
         dt.setNgayKetThuc(txtNgayKT.getText().trim());
@@ -415,13 +607,13 @@ public class DeTaiForm extends javax.swing.JPanel {
         if (service.suaDeTai(dt)) {
             loadTable(null);
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Cập nhật đề tài \"" + ma + "\" thành công!",
-                "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    "Cập nhật đề tài \"" + ma + "\" thành công!",
+                    "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
             AppContext.MAIN_FRAME.refreshAll();
         } else {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Không tìm thấy đề tài \"" + ma + "\" trong hệ thống!",
-                "Lỗi", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    "Không tìm thấy đề tài \"" + ma + "\" trong hệ thống!",
+                    "Lỗi", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -429,17 +621,18 @@ public class DeTaiForm extends javax.swing.JPanel {
         String ma = txtMaDT.getText().trim();
         if (ma.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Vui lòng chọn đề tài cần xóa từ bảng bên dưới.",
-                "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Vui lòng chọn đề tài cần xóa từ bảng bên dưới.",
+                    "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
         int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
-            "Bạn có chắc muốn xóa đề tài \"" + ma + "\" không?\n"
-            + "Thao tác này không thể hoàn tác!",
-            "Xác nhận xóa",
-            javax.swing.JOptionPane.YES_NO_OPTION,
-            javax.swing.JOptionPane.WARNING_MESSAGE);
-        if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+                "Bạn có chắc muốn xóa đề tài \"" + ma + "\" không?",
+                "Xác nhận xóa",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+        if (confirm != javax.swing.JOptionPane.YES_OPTION) {
+            return;
+        }
 
         service.xoaDeTai(ma);
         loadTable(null);
@@ -456,15 +649,30 @@ public class DeTaiForm extends javax.swing.JPanel {
         DeTai dt = service.timTheoMa(ma);
         if (dt == null) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Vui lòng chọn đề tài từ bảng trước khi xuất báo cáo.",
-                "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Vui lòng chọn đề tài từ bảng trước khi xuất báo cáo.",
+                    "Chưa chọn đề tài", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
         String file = new ReportService().export(dt);
         if (file != null) {
+            int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
+                    "Xuất báo cáo thành công!\nFile: " + file + "\n\nBạn có muốn mở file ngay không?",
+                    "Thành công",
+                    javax.swing.JOptionPane.YES_NO_OPTION,
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+                try {
+                    java.awt.Desktop.getDesktop().open(new java.io.File(file));
+                } catch (java.io.IOException ex) {
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Không thể mở file:\n" + ex.getMessage(),
+                            "Lỗi", javax.swing.JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Xuất báo cáo thành công!\nFile: " + file,
-                "Thành công", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                    "Xuất báo cáo thất bại. Vui lòng kiểm tra quyền ghi file hoặc thử lại.",
+                    "Lỗi", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -486,6 +694,7 @@ public class DeTaiForm extends javax.swing.JPanel {
     private javax.swing.JLabel lblNgayKT;
     private javax.swing.JLabel lblTenDT;
     private javax.swing.JLabel lblTimKiem;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTrangThai;
     private javax.swing.JTable tblDeTai;
     private javax.swing.JTextField txtGiangVien;

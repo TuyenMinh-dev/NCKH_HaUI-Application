@@ -34,12 +34,6 @@ public class ThongKePanel extends JPanel {
         JLabel title = StyleManager.createSectionLabel("Thống kê");
         header.add(title, BorderLayout.WEST);
 
-        JButton btnLamMoi = StyleManager.createStyledButton(
-                "↺ Làm mới", new Color(100, 116, 139), Color.WHITE);
-        btnLamMoi.setPreferredSize(new Dimension(110, 34));
-        btnLamMoi.addActionListener(e -> lamMoi());
-        header.add(btnLamMoi, BorderLayout.EAST);
-
         add(header, BorderLayout.NORTH);
 
         // ── Content (scroll) ────────────────────────────────────

@@ -89,7 +89,7 @@ public class TaiLieuForm extends javax.swing.JPanel {
 
         lblTitle.setBackground(new java.awt.Color(255, 0, 0));
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lblTitle.setForeground(new java.awt.Color(255, 51, 0));
+        lblTitle.setForeground(new java.awt.Color(255, 0, 51));
         lblTitle.setText("Kho tài liệu");
 
         lblTongSo.setBackground(new java.awt.Color(102, 255, 0));
@@ -161,26 +161,81 @@ public class TaiLieuForm extends javax.swing.JPanel {
 
         // Tìm kiếm realtime
         txtTimKiem.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-            public void insertUpdate(javax.swing.event.DocumentEvent e)  { loadTable(); }
-            public void removeUpdate(javax.swing.event.DocumentEvent e)  { loadTable(); }
-            public void changedUpdate(javax.swing.event.DocumentEvent e) { loadTable(); }
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                loadTable();
+            }
+
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                loadTable();
+            }
+
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                loadTable();
+            }
         });
 
         // Gắn sự kiện cho 3 nút
         btnThem.addActionListener(this::btnThemActionPerformed);
         btnMoFile.addActionListener(this::btnMoFileActionPerformed);
         btnXoa.addActionListener(this::btnXoaActionPerformed);
+
+        // Căn giữa tất cả các cột
+        javax.swing.table.DefaultTableCellRenderer centerRenderer
+                = new javax.swing.table.DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(javax.swing.JLabel.CENTER);
+
+        for (int i = 0; i < tblTaiLieu.getColumnCount(); i++) {
+            tblTaiLieu.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+        tblTaiLieu.getColumnModel().getColumn(2)
+                .setCellRenderer(new TableRenderers.LoaiRenderer());
+        tblTaiLieu.setRowHeight(32);
+        tblTaiLieu.setShowGrid(true);
+        tblTaiLieu.setGridColor(new java.awt.Color(180, 190, 205));
+        //tool tip
+        btnThem.setToolTipText("Thêm file tài liệu vào kho");
+        btnMoFile.setToolTipText("Mở file tài liệu đang chọn");
+        btnXoa.setToolTipText("Xóa tài liệu đang chọn khỏi kho");
+
+        //placerholder ô tìm kiếm
+        txtTimKiem.setText("Tìm theo tên đề tài...");
+        txtTimKiem.setForeground(java.awt.Color.GRAY);
+
+        txtTimKiem.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (txtTimKiem.getText().equals("Tìm theo tên đề tài...")) {
+                    txtTimKiem.setText("");
+                    txtTimKiem.setForeground(java.awt.Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (txtTimKiem.getText().isEmpty()) {
+                    txtTimKiem.setText("Tìm theo tên đề tài...");
+                    txtTimKiem.setForeground(java.awt.Color.GRAY);
+                }
+            }
+        });
     }
 
-    /** Nạp dữ liệu vào bảng, có lọc theo từ khóa tìm kiếm */
+    /**
+     * Nạp dữ liệu vào bảng, có lọc theo từ khóa tìm kiếm
+     */
     public void loadTable() {
         String key = txtTimKiem.getText().toLowerCase().trim();
+        if (key.startsWith("tìm theo")) {
+            key = "";
+        }
         tableModel.setRowCount(0);
         int idx = 1;
         for (TaiLieu tl : AppContext.DATA_SERVICE.layTatCaTaiLieu()) {
             if (!key.isBlank()
                     && !tl.getTenFile().toLowerCase().contains(key)
-                    && !tl.getMaDeTai().toLowerCase().contains(key)) continue;
+                    && !tl.getMaDeTai().toLowerCase().contains(key)) {
+                continue;
+            }
             tableModel.addRow(new Object[]{
                 idx++, tl.getTenFile(), tl.getLoai(),
                 tl.getMaDeTai(), tl.getNgayThem(), tl.getGhiChu()
@@ -189,19 +244,22 @@ public class TaiLieuForm extends javax.swing.JPanel {
         lblTongSo.setText("Tổng: " + tableModel.getRowCount() + " tài liệu");
     }
 
-    /** Lấy phần mở rộng (đuôi file) */
+    /**
+     * Lấy phần mở rộng (đuôi file)
+     */
     private String getExtension(String name) {
         int i = name.lastIndexOf('.');
         return i >= 0 ? name.substring(i + 1) : "";
     }
 
     // ---- Xử lý 3 nút ----
-
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
         javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
         chooser.setMultiSelectionEnabled(true);
         chooser.setDialogTitle("Chọn tài liệu cần thêm vào kho");
-        if (chooser.showOpenDialog(this) != javax.swing.JFileChooser.APPROVE_OPTION) return;
+        if (chooser.showOpenDialog(this) != javax.swing.JFileChooser.APPROVE_OPTION) {
+            return;
+        }
 
         // Chọn đề tài liên kết (tùy chọn)
         String selectedMa = "";
@@ -224,14 +282,31 @@ public class TaiLieuForm extends javax.swing.JPanel {
         for (File f : files) {
             String ext = getExtension(f.getName()).toUpperCase();
             String loai = switch (ext) {
-                case "PDF"        -> "PDF";
-                case "DOC", "DOCX" -> "Word";
-                case "XLS", "XLSX" -> "Excel";
-                case "PPT", "PPTX" -> "PowerPoint";
-                default           -> "Khác";
+                case "PDF" ->
+                    "PDF";
+                case "DOC", "DOCX" ->
+                    "Word";
+                case "XLS", "XLSX" ->
+                    "Excel";
+                case "PPT", "PPTX" ->
+                    "PowerPoint";
+                default ->
+                    "Khác";
             };
+            // Hỏi ghi chú
+            String ghiChu = javax.swing.JOptionPane.showInputDialog(
+                    this,
+                    "Nhập ghi chú cho file (có thể bỏ trống):",
+                    "Ghi chú",
+                    javax.swing.JOptionPane.QUESTION_MESSAGE
+            );
+            if (ghiChu == null) {
+                ghiChu = "";
+            }
+
             TaiLieu tl = new TaiLieu(UUID.randomUUID().toString(),
                     f.getName(), f.getAbsolutePath(), loai, selectedMa, today);
+            tl.setGhiChu(ghiChu);
             AppContext.DATA_SERVICE.themTaiLieu(tl);
         }
         loadTable();
@@ -244,8 +319,8 @@ public class TaiLieuForm extends javax.swing.JPanel {
         int row = tblTaiLieu.getSelectedRow();
         if (row == -1) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Vui lòng chọn tài liệu cần mở từ bảng.",
-                "Chưa chọn", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Vui lòng chọn tài liệu cần mở từ bảng.",
+                    "Chưa chọn", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
         String ten = tableModel.getValueAt(row, 1).toString();
@@ -255,15 +330,25 @@ public class TaiLieuForm extends javax.swing.JPanel {
                     File f = new File(tl.getDuongDan());
                     if (!f.exists()) {
                         javax.swing.JOptionPane.showMessageDialog(this,
-                            "File không còn tồn tại tại:\n" + tl.getDuongDan(),
-                            "Không tìm thấy file", javax.swing.JOptionPane.ERROR_MESSAGE);
+                                "File không còn tồn tại tại:\n" + tl.getDuongDan(),
+                                "Không tìm thấy file", javax.swing.JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    if (!java.awt.Desktop.isDesktopSupported()) {
+                        javax.swing.JOptionPane.showMessageDialog(this,
+                                "Hệ thống không hỗ trợ mở file tự động!",
+                                "Không hỗ trợ", javax.swing.JOptionPane.WARNING_MESSAGE);
                         return;
                     }
                     java.awt.Desktop.getDesktop().open(f);
-                } catch (Exception ex) {
+                } catch (java.io.IOException ex) {
                     javax.swing.JOptionPane.showMessageDialog(this,
-                        "Không thể mở file:\n" + ex.getMessage(),
-                        "Lỗi", javax.swing.JOptionPane.ERROR_MESSAGE);
+                            "Không thể mở file, có thể do không có phần mềm hỗ trợ:\n" + ex.getMessage(),
+                            "Lỗi mở file", javax.swing.JOptionPane.ERROR_MESSAGE);
+                } catch (SecurityException ex) {
+                    javax.swing.JOptionPane.showMessageDialog(this,
+                            "Không có quyền truy cập file:\n" + tl.getDuongDan(),
+                            "Lỗi quyền truy cập", javax.swing.JOptionPane.ERROR_MESSAGE);
                 }
                 return;
             }
@@ -274,16 +359,18 @@ public class TaiLieuForm extends javax.swing.JPanel {
         int row = tblTaiLieu.getSelectedRow();
         if (row == -1) {
             javax.swing.JOptionPane.showMessageDialog(this,
-                "Vui lòng chọn tài liệu cần xóa từ bảng.",
-                "Chưa chọn", javax.swing.JOptionPane.WARNING_MESSAGE);
+                    "Vui lòng chọn tài liệu cần xóa từ bảng.",
+                    "Chưa chọn", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
         int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
-            "Xóa tài liệu này khỏi kho?\n(File gốc trên máy sẽ không bị xóa)",
-            "Xác nhận xóa",
-            javax.swing.JOptionPane.YES_NO_OPTION,
-            javax.swing.JOptionPane.WARNING_MESSAGE);
-        if (confirm != javax.swing.JOptionPane.YES_OPTION) return;
+                "Xóa tài liệu này khỏi kho?\n",
+                "Xác nhận xóa",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+        if (confirm != javax.swing.JOptionPane.YES_OPTION) {
+            return;
+        }
 
         String ten = tableModel.getValueAt(row, 1).toString();
         AppContext.DATA_SERVICE.layTatCaTaiLieu().stream()
@@ -291,9 +378,9 @@ public class TaiLieuForm extends javax.swing.JPanel {
                 .findFirst()
                 .ifPresent(tl -> AppContext.DATA_SERVICE.xoaTaiLieu(tl.getId()));
         loadTable();
-        lblTongSo.setText("📁 Tổng: " + tableModel.getRowCount() + " tài liệu");
+
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMoFile;
     private javax.swing.JButton btnThem;

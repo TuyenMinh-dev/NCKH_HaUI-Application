@@ -14,5 +14,41 @@
     "loai": "Word",
     "maDeTai": "",
     "ngayThem": "13/06/2026"
+  },
+  {
+    "id": "08fa9139-abc7-4550-821f-fd048d2259c6",
+    "tenFile": "TongHopNhanXetNhom2.xlsx",
+    "duongDan": "E:\\CNPM\\TongHopNhanXetNhom2.xlsx",
+    "loai": "Excel",
+    "maDeTai": "",
+    "ngayThem": "18/06/2026",
+    "ghiChu": ""
+  },
+  {
+    "id": "dd91cbe3-cb3e-4f02-b04d-13fee20d1c1f",
+    "tenFile": "Báo cáo BTL môn KTMT\u0026HĐH Nhóm 12.pdf",
+    "duongDan": "E:\\KTMT\u0026HDH\\Báo cáo BTL môn KTMT\u0026HĐH Nhóm 12.pdf",
+    "loai": "PDF",
+    "maDeTai": "",
+    "ngayThem": "18/06/2026",
+    "ghiChu": "KTMT"
+  },
+  {
+    "id": "fafa50f2-25a6-4837-acd3-6a2637b63e6d",
+    "tenFile": "NCKH_HaUI-Application.rar",
+    "duongDan": "E:\\NCKH_HaUI-Application.rar",
+    "loai": "Khác",
+    "maDeTai": "NCKH001",
+    "ngayThem": "18/06/2026",
+    "ghiChu": ""
+  },
+  {
+    "id": "60a685f4-a477-4d79-8020-67115124855f",
+    "tenFile": "Nhóm 2 - DSTT.docx",
+    "duongDan": "E:\\DSTT\\Nhóm 2 - DSTT.docx",
+    "loai": "Word",
+    "maDeTai": "",
+    "ngayThem": "18/06/2026",
+    "ghiChu": ""
   }
 ]

@@ -23,11 +23,13 @@ public class JsonService {
 
     // =========== DeTai ===========
 
-    public void save(TreeSet<DeTai> ds) {
+    public boolean save(TreeSet<DeTai> ds) {
         try (FileWriter writer = new FileWriter(DATA_FILE)) {
             gson.toJson(new ArrayList<>(ds), writer);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -49,11 +51,13 @@ public class JsonService {
 
     // =========== TaiLieu ===========
 
-    public void saveTaiLieu(List<TaiLieu> ds) {
+    public boolean saveTaiLieu(List<TaiLieu> ds) {
         try (FileWriter writer = new FileWriter(TAILIEU_FILE)) {
             gson.toJson(ds, writer);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
     }
 

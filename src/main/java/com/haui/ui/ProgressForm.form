@@ -17,26 +17,17 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="pnlTong" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="pnlGiaiDoan2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="pnlGiaiDoan3" alignment="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="pnlGiaiDoan3" alignment="0" max="32767" attributes="0"/>
                           <Component id="pnlGiaiDoan4" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="804" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="372" max="-2" attributes="0"/>
-                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="725" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="1881" max="32767" attributes="0"/>
+                      <EmptySpace pref="4700" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="pnlGiaiDoan1" min="-2" max="-2" attributes="0"/>
@@ -49,34 +40,17 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pnlTong" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="453" max="-2" attributes="0"/>
-                      <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pnlTong" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="pnlGiaiDoan1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="pnlGiaiDoan2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="pnlGiaiDoan3" min="-2" pref="168" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="pnlGiaiDoan4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="pnlGiaiDoan1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="pnlGiaiDoan2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="pnlGiaiDoan3" min="-2" pref="168" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="pnlGiaiDoan4" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="94" max="32767" attributes="0"/>
@@ -90,6 +64,13 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f4" green="fd" red="f0" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="66" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
       </Properties>
 
       <Layout>
@@ -98,33 +79,18 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblMoTa1" min="-2" pref="519" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="chkDeCuong" min="-2" pref="655" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="lblTrangThai1" min="-2" pref="60" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblMoTa1" min="-2" pref="519" max="-2" attributes="0"/>
+                      <Component id="chkDeCuong" min="-2" pref="655" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace pref="95" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="chkDeCuong" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                          <Component id="lblTrangThai1" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="chkDeCuong" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="lblMoTa1" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -136,7 +102,7 @@
         <Component class="javax.swing.JLabel" name="lblMoTa1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -144,21 +110,10 @@
             <Property name="text" type="java.lang.String" value="L&#x1ead;p k&#x1ebf; ho&#x1ea1;ch nghi&#xea;n c&#x1ee9;u, x&#xe2;y d&#x1ef1;ng &#x111;&#x1ec1; c&#x1b0;&#x1a1;ng chi ti&#x1ebf;t"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTrangThai1">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="4a" green="a3" red="16" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#x2713; Xong"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="chkDeCuong">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Giai &#x111;o&#x1ea1;n 1: Vi&#x1ebf;t &#x111;&#x1ec1; c&#x1b0;&#x1a1;ng"/>
           </Properties>
@@ -168,25 +123,17 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1388" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="129" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
     <Container class="javax.swing.JPanel" name="pnlGiaiDoan2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f4" green="fd" red="f0" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="66" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
+          </Border>
         </Property>
       </Properties>
 
@@ -197,11 +144,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="chkThuThap" min="-2" pref="658" max="-2" attributes="0"/>
-                      <Component id="lblMoTa2" alignment="0" min="-2" pref="383" max="-2" attributes="0"/>
+                      <Component id="lblMoTa2" min="-2" pref="484" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblTrangThai2" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace pref="26" max="32767" attributes="0"/>
+                  <EmptySpace pref="92" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -214,11 +159,6 @@
                   <Component id="lblMoTa2" min="-2" pref="41" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblTrangThai2" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -226,7 +166,7 @@
         <Component class="javax.swing.JCheckBox" name="chkThuThap">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Giai &#x111;o&#x1ea1;n 2: Thu th&#x1ead;p d&#x1eef; li&#x1ec7;u"/>
           </Properties>
@@ -237,7 +177,7 @@
         <Component class="javax.swing.JLabel" name="lblMoTa2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -245,38 +185,19 @@
             <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m, t&#x1ed5;ng h&#x1ee3;p t&#xe0;i li&#x1ec7;u v&#xe0; d&#x1eef; li&#x1ec7;u nghi&#xea;n c&#x1ee9;u "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTrangThai2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="4a" green="a3" red="16" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#x2713; Xong"/>
-          </Properties>
-        </Component>
       </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel4">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="991" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="307" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
     </Container>
     <Container class="javax.swing.JPanel" name="pnlGiaiDoan3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f4" green="fd" red="f0" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="66" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
+          </Border>
         </Property>
       </Properties>
 
@@ -290,8 +211,6 @@
                       <Component id="lblMoTa3" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblTrangThai3" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -299,38 +218,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="chkCodeDemo" min="-2" pref="100" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblMoTa3" min="-2" pref="43" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="lblTrangThai3" min="-2" pref="84" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="chkCodeDemo" min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblMoTa3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblTrangThai3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="4a" green="a3" red="16" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#x2713; Xong"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="chkCodeDemo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Giai &#x111;o&#x1ea1;n 3: Code demo"/>
           </Properties>
@@ -341,7 +241,7 @@
         <Component class="javax.swing.JLabel" name="lblMoTa3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -356,6 +256,13 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f4" green="fd" red="f0" type="rgb"/>
         </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="66" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
+          </Border>
+        </Property>
       </Properties>
 
       <Layout>
@@ -364,12 +271,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="chkBaoCao" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
-                      <Component id="lblMoTa4" alignment="0" min="-2" pref="372" max="-2" attributes="0"/>
+                      <Component id="chkBaoCao" min="-2" pref="287" max="-2" attributes="0"/>
+                      <Component id="lblMoTa4" min="-2" pref="462" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblTrangThai4" min="-2" pref="60" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -382,11 +287,6 @@
                   <Component id="lblMoTa4" min="-2" pref="38" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblTrangThai4" min="-2" pref="84" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -394,7 +294,7 @@
         <Component class="javax.swing.JLabel" name="lblMoTa4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="3"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="66" red="ff" type="rgb"/>
@@ -402,21 +302,10 @@
             <Property name="text" type="java.lang.String" value="Ho&#xe0;n thi&#x1ec7;n b&#xe1;o c&#xe1;o t&#x1ed5;ng k&#x1ebf;t k&#x1ebf;t qu&#x1ea3; nghi&#xea;n c&#x1ee9;u"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTrangThai4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="4a" green="a3" red="16" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="&#x2713; Xong"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="chkBaoCao">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Giai &#x111;o&#x1ea1;n 4: Vi&#x1ebf;t b&#xe1;o c&#xe1;o"/>
           </Properties>
@@ -427,6 +316,13 @@
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="f4" green="fd" red="f0" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder>
+              <Color PropertyName="color" blue="66" green="ff" red="ff" type="rgb"/>
+            </LineBorder>
+          </Border>
         </Property>
       </Properties>
 
@@ -440,13 +336,15 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="progressBar" min="-2" pref="281" max="-2" attributes="0"/>
                                       <Component id="lblPhanTram" min="-2" pref="147" max="-2" attributes="0"/>
-                                      <Component id="lblTienDo" min="-2" pref="281" max="-2" attributes="0"/>
-                                      <Component id="lblTrangThaiVal" min="-2" pref="281" max="-2" attributes="0"/>
-                                      <Component id="lblGiangVienVal" min="-2" pref="281" max="-2" attributes="0"/>
-                                      <Component id="lblTenDTVal" min="-2" pref="281" max="-2" attributes="0"/>
                                       <Component id="lblChonDeTai" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblTenDTVal" min="-2" pref="345" max="-2" attributes="0"/>
+                                      <Component id="lblTrangThaiVal" alignment="0" min="-2" pref="314" max="-2" attributes="0"/>
+                                      <Component id="lblGiangVienVal" alignment="0" min="-2" pref="337" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="progressBar" alignment="0" pref="305" max="32767" attributes="0"/>
+                                          <Component id="lblTienDo" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -454,7 +352,7 @@
                                   <Component id="btnLuuTienDo" min="-2" pref="149" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="72" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="8" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -473,20 +371,20 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="cboDeTai" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="lblTenDTVal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                  <Component id="lblGiangVienVal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="lblTenDTVal" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="lblGiangVienVal" min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace pref="59" max="32767" attributes="0"/>
                   <Component id="lblTrangThaiVal" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                  <Component id="lblTienDo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Component id="lblTienDo" min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblPhanTram" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="progressBar" min="-2" pref="21" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="btnLuuTienDo" min="-2" pref="47" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -568,12 +466,16 @@
         <Component class="javax.swing.JButton" name="btnLuuTienDo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="66" red="0" type="rgb"/>
+              <Color blue="aa" green="5a" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="0"/>
+              <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="\ud83d\udcbe L&#x1b0;u ti&#x1ebf;n &#x111;&#x1ed9;" containsInvalidXMLChars="true"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=" L&#x1b0;u ti&#x1ebf;n &#x111;&#x1ed9;"/>
+            <Property name="actionCommand" type="java.lang.String" value="L&#x1b0;u ti&#x1ebf;n &#x111;&#x1ed9;"/>
           </Properties>
         </Component>
       </SubComponents>

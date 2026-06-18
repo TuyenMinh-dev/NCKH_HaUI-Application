@@ -1,22 +1,22 @@
 ╔══════════════════════════════════════╗
-║       BÁO CÁO NCKH - HAUI           ║
+║       BÁO CÁO NCKH - HAUI            ║
 ╚══════════════════════════════════════╝
 
-Ngày xuất: 17/06/2026 16:28:26
+Ngày xuất: 18/06/2026 12:21:38
 ─────────────────────────────────────────
 
 THÔNG TIN ĐỀ TÀI
-  Mã đề tài  : NCKH002
-  Tên đề tài : Xây dựng hệ thống quản lý thư viện thông minh
-  Giảng viên : ThS. Lê Thị C
-  MSSV       : 2021600456
-  Sinh viên  : Phạm Văn Dũng
+  Mã đề tài  : NCKH001
+  Tên đề tài : Nghiên cứu ứng dụng AI trong nhận dạng chữ viết tay
+  Giảng viên : TS. Nguyễn Văn A
+  MSSV       : 2021600123
+  Sinh viên  : Trần Thị Bình
   Trạng thái : Hoàn thành
   Bắt đầu   : 01/09/2024
-  Kết thúc  : 15/12/2024
+  Kết thúc  : 30/05/2025
 
 MÔ TẢ
-  Hệ thống quản lý thư viện tích hợp nhận dạng QR code và tra cứu thông minh
+  Nghiên cứu và ứng dụng mô hình học sâu để nhận dạng chữ viết tay tiếng Việt
 
 TIẾN ĐỘ THỰC HIỆN: 100%
   [✓] Viết đề cương
@@ -25,4 +25,4 @@ TIẾN ĐỘ THỰC HIỆN: 100%
   [✓] Viết báo cáo
 
 ─────────────────────────────────────────
-Xuất bởi Hệ thống NCKH HaUI v2.0
+Xuất bởi Hệ thống NCKH HaUI 

@@ -6,13 +6,13 @@
     "mssv": "2024",
     "hoTenSV": "Hải",
     "moTa": "Nghiên cứu tích hợp AI vào hệ thống học kết hợp",
-    "trangThai": "Đang thực hiện",
+    "trangThai": "Hoàn thành",
     "ngayBatDau": "25/10/2025",
     "ngayKetThuc": "30/6/2026",
     "deCuong": true,
     "thuThapDuLieu": true,
     "codeDemo": true,
-    "vietBaoCao": false
+    "vietBaoCao": true
   },
   {
     "maDT": "NCKH001",
@@ -21,13 +21,13 @@
     "mssv": "2021600123",
     "hoTenSV": "Trần Thị Bình",
     "moTa": "Nghiên cứu và ứng dụng mô hình học sâu để nhận dạng chữ viết tay tiếng Việt",
-    "trangThai": "Đang thực hiện",
+    "trangThai": "Hoàn thành",
     "ngayBatDau": "01/09/2024",
     "ngayKetThuc": "30/05/2025",
     "deCuong": true,
     "thuThapDuLieu": true,
-    "codeDemo": false,
-    "vietBaoCao": false
+    "codeDemo": true,
+    "vietBaoCao": true
   },
   {
     "maDT": "NCKH002",
@@ -43,5 +43,20 @@
     "thuThapDuLieu": true,
     "codeDemo": true,
     "vietBaoCao": true
+  },
+  {
+    "maDT": "NCKH003",
+    "tenDT": "Thiết kế giao diện cho ứng dụng xem phim trực tuyến",
+    "giangVien": "Vũ Thị Dương",
+    "mssv": "2025",
+    "hoTenSV": "Nguyễn Đức Long",
+    "moTa": "",
+    "trangThai": "Đang thực hiện",
+    "ngayBatDau": "23/06/2025",
+    "ngayKetThuc": "26/08/2026",
+    "deCuong": true,
+    "thuThapDuLieu": true,
+    "codeDemo": true,
+    "vietBaoCao": false
   }
 ]

@@ -2,27 +2,27 @@
 ║       BÁO CÁO NCKH - HAUI           ║
 ╚══════════════════════════════════════╝
 
-Ngày xuất: 17/06/2026 16:28:26
+Ngày xuất: 18/06/2026 12:16:53
 ─────────────────────────────────────────
 
 THÔNG TIN ĐỀ TÀI
-  Mã đề tài  : NCKH002
-  Tên đề tài : Xây dựng hệ thống quản lý thư viện thông minh
-  Giảng viên : ThS. Lê Thị C
-  MSSV       : 2021600456
-  Sinh viên  : Phạm Văn Dũng
-  Trạng thái : Hoàn thành
-  Bắt đầu   : 01/09/2024
-  Kết thúc  : 15/12/2024
+  Mã đề tài  : NCKH003
+  Tên đề tài : Thiết kế giao diện cho ứng dụng xem phim trực tuyến
+  Giảng viên : Vũ Thị Dương
+  MSSV       : 2025
+  Sinh viên  : Nguyễn Đức Long
+  Trạng thái : Đang thực hiện
+  Bắt đầu   : 23/06/2025
+  Kết thúc  : 26/08/2026
 
 MÔ TẢ
-  Hệ thống quản lý thư viện tích hợp nhận dạng QR code và tra cứu thông minh
+  (Chưa có)
 
-TIẾN ĐỘ THỰC HIỆN: 100%
+TIẾN ĐỘ THỰC HIỆN: 75%
   [✓] Viết đề cương
   [✓] Thu thập dữ liệu
   [✓] Code demo
-  [✓] Viết báo cáo
+  [ ] Viết báo cáo
 
 ─────────────────────────────────────────
 Xuất bởi Hệ thống NCKH HaUI v2.0
